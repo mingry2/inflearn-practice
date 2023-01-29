@@ -19,6 +19,7 @@ public class AppConfig {
     // MemberService 역할이 드러나게 해줌
     @Bean // 빈 등록 -> 어노테이션이 붙은 메소드들은 스프링 컨테이너에 등록됨
     public MemberService memberService() {
+        System.out.println("call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
 
     }
@@ -27,6 +28,7 @@ public class AppConfig {
     // MemberRepository 역할이 드러나게 해줌
     @Bean
     public MemberRepository memberRepository() {
+        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
 
     }
@@ -34,6 +36,7 @@ public class AppConfig {
     // OrderService 역할이 드러나게 해줌
     @Bean
     public OrderService orderService() {
+        System.out.println("call AppConfig.orderService");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
 
     }
